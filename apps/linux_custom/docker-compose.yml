@@ -1,0 +1,6 @@
+version: '3.8'
+services:
+  linux_custom:
+    build: .
+    ports:
+      - "2222:22"

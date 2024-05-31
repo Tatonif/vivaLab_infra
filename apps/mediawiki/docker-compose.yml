@@ -1,0 +1,21 @@
+version: '3.1'
+
+services:
+  mediawiki:
+    image: mediawiki
+    restart: always
+    ports:
+      - "8082:80"
+    environment:
+      MEDIAWIKI_DB_HOST: db
+      MEDIAWIKI_DB_USER: exampleuser
+      MEDIAWIKI_DB_PASSWORD: examplepass
+      MEDIAWIKI_DB_NAME: exampledb
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: exampledb
+      MYSQL_USER: exampleuser
+      MYSQL_PASSWORD: examplepass
+      MYSQL_ROOT_PASSWORD: rootpass
